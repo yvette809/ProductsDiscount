@@ -5,17 +5,22 @@ public  class MilkDiscount extends BaseDiscount{
         super(nextDiscount);
     }
 
+    @Override
     protected boolean isApplicable(Product product){
-        if(product.getName()=="Milk"){
-            return true;
-
-        }
-        return false;
+        return product.getName().equalsIgnoreCase("milk");
 
     }
+    @Override
     protected  double calculateDiscount(Product product){
-        double discount = 0.05 * product.getPrice();
-        return discount;
+        return product.getPrice() * 0.05;
+
+    }
+    @Override
+    public String getDescription(Product product){
+        if(isApplicable(product)){
+            return nextDiscount.getDescription(product);
+        }
+        return "No Friday discount applicable";
 
     }
 

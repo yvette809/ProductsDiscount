@@ -5,18 +5,23 @@ public class QuantityDiscount extends BaseDiscount{
         super(nextDiscount);
     }
 
+    @Override
     protected boolean isApplicable(Product product){
-        if(product.getQuantity()>=5){
-            return true;
-        }
-        return false;
+       return product.getQuantity()>=5;
 
     }
+    @Override
     protected  double calculateDiscount(Product product){
-        if(product.getQuantity() >=5){
-            double discount = product.getQuantity() - (10 * product.getQuantity());
-            return discount;
+        return 10.0 * product.getQuantity();
         }
-        return product.getPrice();
+
+    @Override
+    public String getDescription(Product product) {
+        if (isApplicable(product)) {
+            String nextDescription = nextDiscount.getDescription(product);
+            return "Quantity Discount: SEK 10 off per product (if >= 5 products)\n" + nextDescription;
+        } else {
+            return "No quantity discount applicable";
+        }
     }
 }

@@ -18,9 +18,10 @@ public abstract class BaseDiscount implements Discount{
        return discount;
     }
     public String getDescription(Product product){
-       product = new Product("apples",10.0,5);
-
-       return "";
+       if(nextDiscount!=null){
+           nextDiscount.getDescription(product);
+       }
+       return "No a pplicable discount";
     }
 
 
