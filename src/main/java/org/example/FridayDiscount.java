@@ -1,24 +1,27 @@
 package org.example;
 import java.time.DayOfWeek;
+import java.time.LocalDate;
 
 public  class FridayDiscount extends BaseDiscount{
     public FridayDiscount(Discount nextDiscount) {
         super(nextDiscount);
     }
 
+    @Override
     protected boolean isApplicable(Product product) {
-        DayOfWeek friday = DayOfWeek.FRIDAY;
-        DayOfWeek purchaseDayOfWeek = product.getPurchaseDate().getDayOfWeek();
-        return purchaseDayOfWeek ==friday ? true: false;
-
+        LocalDate today = LocalDate.now();
+        return today.getDayOfWeek()== DayOfWeek.FRIDAY && product.getPrice()>0;
 
     }
 
+   @Override
+   protected  double calculateDiscount(Product product){
+       return product.getPrice() * 0.1;
 
-    protected  double CalculateDiscount(Product product){
-        double discount = 0.1 * product.getPrice();
-        return discount;
-
+    }
+    @Override
+    public String getDescription(Product product){
+        return "Friday Discount: 10% off";
     }
 
 

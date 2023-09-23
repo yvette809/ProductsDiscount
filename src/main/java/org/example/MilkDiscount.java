@@ -13,7 +13,7 @@ public  class MilkDiscount extends BaseDiscount{
         return false;
 
     }
-    protected  double CalculateDiscount(Product product){
+    protected  double calculateDiscount(Product product){
         double discount = 0.05 * product.getPrice();
         return discount;
 

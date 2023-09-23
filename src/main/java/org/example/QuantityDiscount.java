@@ -12,7 +12,7 @@ public class QuantityDiscount extends BaseDiscount{
         return false;
 
     }
-    protected  double CalculateDiscount(Product product){
+    protected  double calculateDiscount(Product product){
         if(product.getQuantity() >=5){
             double discount = product.getQuantity() - (10 * product.getQuantity());
             return discount;
