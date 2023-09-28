@@ -19,9 +19,14 @@ public  class FridayDiscount extends BaseDiscount{
        return product.getPrice() * 0.1;
 
     }
+
     @Override
     public String getDescription(Product product){
-        return "Friday Discount: 10% off";
+        if(isApplicable(product)){
+            return nextDiscount.getDescription(product);
+        }
+        return "No discount on friday";
+
     }
 
 

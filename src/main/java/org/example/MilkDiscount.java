@@ -20,7 +20,7 @@ public  class MilkDiscount extends BaseDiscount{
         if(isApplicable(product)){
             return nextDiscount.getDescription(product);
         }
-        return "No Friday discount applicable";
+        return "No discount for the Milk product";
 
     }
 

@@ -21,7 +21,7 @@ public abstract class BaseDiscount implements Discount{
        if(nextDiscount!=null){
            nextDiscount.getDescription(product);
        }
-       return "No a pplicable discount";
+       return "No applicable discount";
     }
 
 

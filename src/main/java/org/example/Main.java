@@ -14,9 +14,11 @@ public class Main {
         double orangesDiscount = discountChain.apply(oranges);
         double breadDiscount = discountChain.apply(bread);
 
+
         System.out.println("Milk Discount: " + milkDiscount);
         System.out.println("Oranged Discount: " + orangesDiscount);
         System.out.println("bread Discount: " + breadDiscount);
+
 
     }
 }
